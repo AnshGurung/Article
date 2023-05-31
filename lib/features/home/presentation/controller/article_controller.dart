@@ -4,6 +4,7 @@ import '../../data/model/article_model.dart';
 import '../../data/repository/article_repo_imple.dart';
 
 class AritcleController extends GetxController {
+  RxBool isLoading = false.obs;
   ArticleRepoImple articleRepo = ArticleRepoImple();
   @override
   onInit() async {
@@ -19,12 +20,11 @@ class AritcleController extends GetxController {
   }
 
   Future<void> getArticles() async {
-    print("_-------------  ----------- getArticle Called");
+    isLoading.value = true;
     var response = await articleRepo.getArticles();
     if (response.hasData) {
       setArticleInfo = response.data as List<Article>;
-    } else {
-      print("error");
     }
+    isLoading.value = false;
   }
 }

@@ -72,7 +72,7 @@ class ArticleCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 25),
             child: Text(
-              "This is a very long Article Title to show the effect of long titles in UI",
+              article.title,
               style: Theme.of(context).textTheme.displayMedium,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
