@@ -80,7 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      Get.to(ArticleViewScreen());
+                                      Get.to(
+                                        ArticleViewScreen(
+                                          articleModel: articleList[index],
+                                        ),
+                                      );
                                     },
                                     child: ArticleCard(
                                       article: articleList[index],
@@ -92,20 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Spacing.sizedBoxHMax,
-                        // GestureDetector(
-                        //   onTap: () async {
-                        //     await articleController.getArticles();
-                        //   },
-                        //   child: CircleAvatar(
-                        //     backgroundColor: primaryColor1,
-                        //     radius: 50,
-                        //     child: const Icon(
-                        //       Icons.bubble_chart,
-                        //       size: 60,
-                        //       color: Colors.white,
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
             ),

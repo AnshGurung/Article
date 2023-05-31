@@ -5,11 +5,15 @@ class Article {
   final String slug;
   final Author author;
   final DateTime createdAt;
+  final String description;
+  final String body;
 
   Article({
     required this.title,
     required this.slug,
     required this.author,
     required this.createdAt,
+    required this.description,
+    required this.body,
   });
 }

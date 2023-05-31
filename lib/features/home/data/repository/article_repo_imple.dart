@@ -25,6 +25,8 @@ class ArticleRepoImple {
         slug: eachArticle['slug'],
         author: Author.fromJson(eachArticle['author']),
         createdAt: DateTime.parse(eachArticle['createdAt']),
+        description: eachArticle['description'],
+        body: eachArticle['body'],
       );
       articles.add(article);
     }
