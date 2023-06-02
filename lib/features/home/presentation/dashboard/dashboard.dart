@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
   final pages = [
     const HomeScreen(),
     const TagScreen(),
-    const AddScreen(),
+    const AddArticleScreen(),
     const FavoriteScreen(),
     const ProfileScreen(),
   ];

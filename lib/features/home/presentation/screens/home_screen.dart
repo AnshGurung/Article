@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../auth/controllers/network_controller.dart';
+import 'add_article_screen.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -55,7 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   // final SharedPreferences prefs = await _prefs;
                                   // prefs.clear();
                                   // Get.offAll(const LoginScreen());
-                                  loginController.logOut();
+                                  // loginController.logOut();
+                                  Get.to(const AddArticleScreen());
                                 },
                                 child: const GreetingWidget(),
                               ),
