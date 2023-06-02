@@ -6,10 +6,13 @@ import 'package:article_hub/features/home/domain/repository/article_repo.dart';
 import 'package:article_hub/features/home/presentation/controller/article_controller.dart';
 import 'package:article_hub/features/home/presentation/effects/shimmer_effect_for_home.dart';
 import 'package:article_hub/features/home/presentation/screens/article_view_screen.dart';
+import 'package:article_hub/features/home/presentation/screens/offline_screen.dart';
 import 'package:article_hub/features/home/presentation/widgets/article_card.dart';
 import 'package:article_hub/features/home/presentation/widgets/greeting_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../auth/controllers/network_controller.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,7 +25,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final LoginController loginController = Get.put(LoginController());
   final AritcleController articleController = Get.put(AritcleController());
-
+  final NetworkController networkController = Get.put(NetworkController());
   String imageUrl =
       'https://cdn3.vectorstock.com/i/1000x1000/03/72/beautiful-woman-profile-with-flowers-in-elegant-vector-20210372.jpg';
   @override
@@ -59,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               CircleAvatar(
                                 radius: 63 / 2,
                                 backgroundImage: NetworkImage(imageUrl),
+                                backgroundColor: grey300,
                               ),
                             ],
                           ),
@@ -80,11 +84,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      Get.to(
-                                        ArticleViewScreen(
-                                          articleModel: articleList[index],
-                                        ),
-                                      );
+                                      if (networkController.isOnline.value) {
+                                        Get.to(
+                                          ArticleViewScreen(
+                                            articleModel: articleList[index],
+                                          ),
+                                        );
+                                      } else {
+                                        if (Get.isSnackbarOpen) {
+                                          Get.closeCurrentSnackbar();
+                                        }
+                                        Get.offAll(OfflineScreen());
+                                      }
                                     },
                                     child: ArticleCard(
                                       article: articleList[index],

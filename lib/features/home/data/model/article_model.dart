@@ -7,6 +7,7 @@ class Article {
   final DateTime createdAt;
   final String description;
   final String body;
+  final List tags;
 
   Article({
     required this.title,
@@ -15,5 +16,6 @@ class Article {
     required this.createdAt,
     required this.description,
     required this.body,
+    required this.tags,
   });
 }

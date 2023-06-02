@@ -27,6 +27,7 @@ class ArticleRepoImple {
         createdAt: DateTime.parse(eachArticle['createdAt']),
         description: eachArticle['description'],
         body: eachArticle['body'],
+        tags: eachArticle['tagList'],
       );
       articles.add(article);
     }

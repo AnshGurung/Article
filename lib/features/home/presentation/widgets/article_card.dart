@@ -45,9 +45,9 @@ class ArticleCard extends StatelessWidget {
                       backgroundImage: imageProvider,
                       radius: 55 / 2,
                     ),
-                    placeholder: (context, url) => const CircleAvatar(
+                    placeholder: (context, url) => CircleAvatar(
                       radius: 55 / 2,
-                      child: Icon(Icons.person),
+                      backgroundColor: grey300,
                     ),
                   ),
                   Spacing.sizedBoxWSmall,

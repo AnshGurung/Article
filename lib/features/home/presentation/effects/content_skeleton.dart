@@ -16,7 +16,7 @@ class TextSkeleton extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.4,
       height: 20,
-      color: shimmerColor,
+      color: grey300,
     );
   }
 }
@@ -30,7 +30,7 @@ class ContainerSkeleton extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       //height: 250,
       decoration: BoxDecoration(
-        color: shimmerColor,
+        color: grey300,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(

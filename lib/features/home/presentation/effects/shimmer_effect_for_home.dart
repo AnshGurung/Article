@@ -21,7 +21,7 @@ class ShimmerEffectForHome extends StatelessWidget {
               ),
               CircleAvatar(
                 radius: 63 / 2,
-                backgroundColor: shimmerColor,
+                backgroundColor: grey300,
               ),
             ],
           ),
