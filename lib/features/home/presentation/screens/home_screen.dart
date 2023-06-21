@@ -2,6 +2,7 @@ import 'package:article_hub/core/presentation/theme/colours.dart';
 import 'package:article_hub/core/presentation/utils/spacing.dart';
 import 'package:article_hub/features/auth/controllers/login_controller.dart';
 import 'package:article_hub/features/auth/presentation/screens/login_screen.dart';
+import 'package:article_hub/features/home/di/article_binding.dart';
 import 'package:article_hub/features/home/domain/repository/article_repo.dart';
 import 'package:article_hub/features/home/presentation/controller/article_controller.dart';
 import 'package:article_hub/features/home/presentation/effects/shimmer_effect_for_home.dart';
@@ -24,9 +25,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final LoginController loginController = Get.put(LoginController());
-  final AritcleController articleController = Get.put(AritcleController());
-  final NetworkController networkController = Get.put(NetworkController());
+  LoginController loginController = Get.find<LoginController>();
+  ArticleController articleController = Get.find<ArticleController>();
+  NetworkController networkController = Get.find<NetworkController>();
   String imageUrl =
       'https://cdn3.vectorstock.com/i/1000x1000/03/72/beautiful-woman-profile-with-flowers-in-elegant-vector-20210372.jpg';
   @override
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
-        body: GetBuilder<AritcleController>(builder: (context) {
+        body: GetBuilder<ArticleController>(builder: (context) {
           bool isLoading = articleController.isLoading.value;
           return SingleChildScrollView(
             physics: isLoading
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   // prefs.clear();
                                   // Get.offAll(const LoginScreen());
                                   // loginController.logOut();
-                                  Get.to(const AddArticleScreen());
+                                  Get.to(AddArticleScreen());
                                 },
                                 child: const GreetingWidget(),
                               ),
@@ -71,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 34),
-                          child: GetBuilder<AritcleController>(
-                            init: AritcleController(),
+                          child: GetBuilder<ArticleController>(
+                            init: ArticleController(),
                             builder: (articleController) {
                               var articleList = articleController.articleInfo;
 
@@ -87,16 +88,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return GestureDetector(
                                     onTap: () {
                                       if (networkController.isOnline.value) {
-                                        Get.to(
-                                          ArticleViewScreen(
-                                            articleModel: articleList[index],
-                                          ),
+                                        Get.toNamed(
+                                          '/articleView',
+                                          arguments: articleList[index],
                                         );
                                       } else {
                                         if (Get.isSnackbarOpen) {
                                           Get.closeCurrentSnackbar();
                                         }
-                                        Get.offAll(OfflineScreen());
+                                        Get.offAllNamed('/offlineScreen');
                                       }
                                     },
                                     child: ArticleCard(

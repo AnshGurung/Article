@@ -1,11 +1,11 @@
 import 'dart:convert';
+import 'package:article_hub/core/data/source/local/storage_constant.dart';
 import 'package:article_hub/core/presentation/theme/api_endpoints.dart';
 import 'package:article_hub/features/auth/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 //import 'package:shared_preferences/shared_preferences.dart';
-import '../../../core/utils/constant.dart';
 import '../../../core/utils/sp_utils.dart';
 import '../../home/presentation/screens/home_screen.dart';
 
@@ -18,7 +18,7 @@ class LoginController extends GetxController {
 
   SpUtils spUtils = SpUtils();
   Future<void> isLogin() async {
-    var token = await spUtils.getString(Constant.token);
+    var token = await spUtils.getString(StorageConstant.accessToken);
     if (token != null) {
       Get.to(const HomeScreen());
     } else {
@@ -27,7 +27,7 @@ class LoginController extends GetxController {
   }
 
   void logOut() {
-    spUtils.delete(Constant.token);
+    spUtils.delete(StorageConstant.accessToken);
     Get.offAll(const LoginScreen());
   }
 
@@ -55,7 +55,7 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 200) {
         var token = json['user']['token'];
-        await spUtils.setString(Constant.token, token);
+        await spUtils.setString(StorageConstant.accessToken, token);
 
         // await pref.setString('token', token);
         // Request successfulR

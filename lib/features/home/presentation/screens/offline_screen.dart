@@ -13,7 +13,7 @@ import '../controller/article_controller.dart';
 class OfflineScreen extends StatelessWidget {
   OfflineScreen({super.key});
 
-  AritcleController articleController = Get.put(AritcleController());
+  ArticleController articleController = Get.put(ArticleController());
   NetworkController networkController = Get.put(NetworkController());
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class OfflineScreen extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(23),
-          child: GetBuilder<AritcleController>(
+          child: GetBuilder<ArticleController>(
             builder: (aritcleController) {
               return ListView(
                 children: [

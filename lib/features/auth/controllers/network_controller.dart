@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-class NetworkController extends GetxController {
+class   NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
   RxBool isOnline = true.obs;
   @override

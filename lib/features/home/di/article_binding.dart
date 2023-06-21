@@ -1,3 +1,5 @@
+import 'package:article_hub/features/auth/domain/repository/auth_implementation.dart';
+import 'package:article_hub/features/auth/domain/repository/auth_repository.dart';
 import 'package:article_hub/features/home/data/repository/article_repo_imple.dart';
 import 'package:article_hub/features/home/domain/repository/article_repo.dart';
 import 'package:get/instance_manager.dart';
@@ -10,7 +12,8 @@ class ArticleBinding implements Bindings {
     // Get.put<ArticleRepo>(
     //   ArticleRepoImple(),
     // );
-
-    Get.put(AritcleController());
+    Get
+      ..put<AuthRepository>(AuthImplementation())
+      ..put(ArticleController());
   }
 }

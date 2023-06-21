@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../data/model/article_model.dart';
 import '../../data/repository/article_repo_imple.dart';
 
-class AritcleController extends GetxController {
+class ArticleController extends GetxController {
   RxBool isLoading = false.obs;
   ArticleRepoImple articleRepo = ArticleRepoImple();
   @override

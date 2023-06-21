@@ -12,8 +12,6 @@ import '../model/author_model.dart';
 class ArticleRepoImple {
   List<Article> articles = [];
   Future<ApiResponse> getArticles() async {
-    print("******************   object");
-
     var response = await http.get(
       Uri.parse(ApiEndPoints.baseUrl + ApiEndPoints.articleEndPoints.articles),
     );
@@ -28,10 +26,10 @@ class ArticleRepoImple {
         description: eachArticle['description'],
         body: eachArticle['body'],
         tags: eachArticle['tagList'],
+        isFavorited: eachArticle['favorited'],
       );
       articles.add(article);
     }
-    print('################################3  ${articles.length}');
 
     return ApiResponse(data: articles);
   }

@@ -1,6 +1,8 @@
 import 'package:article_hub/features/home/data/model/article_model.dart';
+import 'package:article_hub/features/home/presentation/controller/like_unlike_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/presentation/theme/colours.dart';
@@ -16,6 +18,7 @@ class ArticleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final likeUnlikeController = Get.put(LikeUnlikeController());
     return Container(
       padding: const EdgeInsets.all(20),
       //height: 250,
@@ -82,7 +85,15 @@ class ArticleCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(DateFormat('dd/MM/yyyy').format(article.createdAt)),
-              const Icon(Icons.favorite_border),
+              IconButton(
+                  onPressed: () {
+                    article.isFavorited
+                        ? likeUnlikeController.unlikeArticle(article.slug)
+                        : likeUnlikeController.likeArticle(article.slug);
+                  },
+                  icon: article.isFavorited
+                      ? const Icon(Icons.favorite)
+                      : const Icon(Icons.favorite_border_outlined)),
             ],
           ),
         ],

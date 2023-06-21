@@ -8,6 +8,7 @@ class Article {
   final String description;
   final String body;
   final List tags;
+  final bool isFavorited;
 
   Article({
     required this.title,
@@ -17,5 +18,6 @@ class Article {
     required this.description,
     required this.body,
     required this.tags,
+    required this.isFavorited,
   });
 }

@@ -4,8 +4,26 @@ import 'package:get/get.dart';
 import '../../../../core/presentation/theme/colours.dart';
 import '../../controllers/slpash_controller.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      //splashController.authorise();
+      Future.delayed(
+        Duration(seconds: 5),
+        () => Get.find<SplashContoller>().authorise(),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +31,7 @@ class SplashScreen extends StatelessWidget {
     String imagePath = "assets/images/";
     String lightLogo = "BYTE-light.png";
     String darkLogo = "BYTE-dark.png";
-    Get.put(SplashContoller());
+
     return Scaffold(
       backgroundColor: isLightTheme ? backgroundLight : backgroundDark,
       body: Center(

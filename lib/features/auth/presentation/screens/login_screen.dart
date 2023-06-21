@@ -22,13 +22,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  SignUpController signUpController = Get.put(SignUpController());
-  LoginController loginController = Get.put(LoginController());
-  NetworkController networkController = Get.put(NetworkController());
+  // SignUpController signUpController = Get.put(SignUpController());
+  // LoginController loginController = Get.put(LoginController());
+  // NetworkController networkController = Get.put(NetworkController());
+  SignUpController signUpController = Get.find<SignUpController>();
+  LoginController loginController = Get.find<LoginController>();
+  NetworkController networkController = Get.find<NetworkController>();
   //TEXT MESSAGES
 
   //BOOLEANS
-  RxBool isNewUser = false.obs;
+  RxBool isNewUser = true.obs;
 
   //PADDINGS
   EdgeInsets verticalPadding = const EdgeInsets.symmetric(vertical: 20);
