@@ -19,19 +19,20 @@ class AppPages {
       page: SplashScreen.new,
       bindings: [
         CoreBinding(),
+        AuthBinding(),
+        LoginBinding(),
+        ArticleBinding(),
+        LikeUnlikeBindings(),
       ],
     ),
     GetPage(
       name: Path.register,
       page: LoginScreen.new,
-      bindings: [
-        AuthBinding(),
-        LoginBinding(),
-      ],
+      bindings: [],
     ),
     GetPage(
       name: Path.home,
-      page: HomeScreen.new,
+      page: () => const HomeScreen(),
       bindings: [
         ArticleBinding(),
         LikeUnlikeBindings(),

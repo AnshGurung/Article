@@ -1,4 +1,5 @@
 import 'package:article_hub/features/home/data/model/author_model.dart';
+import 'package:get/get.dart';
 
 class Article {
   final String title;

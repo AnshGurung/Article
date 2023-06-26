@@ -8,13 +8,18 @@ class LikeUnlikeController extends GetxController {
           likeUnlikeArticleRemoteDataSource:
               Get.find<LikeUnlikeArticleRemoteDataSource>());
 
+  bool isFavorited = false;
   likeArticle(String slug) async {
     await likeUnlikeArticleRepoImpl.likeArticle(slug);
+    isFavorited = true;
+
     update();
   }
 
   unlikeArticle(String slug) async {
     await likeUnlikeArticleRepoImpl.unlikeArticle(slug);
+    isFavorited = false;
+
     update();
   }
 }

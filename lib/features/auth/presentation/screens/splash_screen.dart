@@ -14,12 +14,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //splashController.authorise();
       Future.delayed(
-        Duration(seconds: 5),
+        const Duration(seconds: 5),
         () => Get.find<SplashContoller>().authorise(),
       );
     });

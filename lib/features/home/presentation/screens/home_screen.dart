@@ -25,13 +25,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  LoginController loginController = Get.find<LoginController>();
-  ArticleController articleController = Get.find<ArticleController>();
-  NetworkController networkController = Get.find<NetworkController>();
+ 
   String imageUrl =
       'https://cdn3.vectorstock.com/i/1000x1000/03/72/beautiful-woman-profile-with-flowers-in-elegant-vector-20210372.jpg';
   @override
   Widget build(BuildContext context) {
+  LoginController loginController = Get.find<LoginController>();
+  ArticleController articleController = Get.find<ArticleController>();
+  NetworkController networkController = Get.find<NetworkController>();
     return SafeArea(
       child: Scaffold(
         extendBody: true,

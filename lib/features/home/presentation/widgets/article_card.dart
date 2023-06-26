@@ -19,6 +19,8 @@ class ArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final likeUnlikeController = Get.put(LikeUnlikeController());
+    likeUnlikeController.isFavorited = article.isFavorited;
+
     return Container(
       padding: const EdgeInsets.all(20),
       //height: 250,
@@ -85,15 +87,19 @@ class ArticleCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(DateFormat('dd/MM/yyyy').format(article.createdAt)),
-              IconButton(
+              GetBuilder<LikeUnlikeController>(builder: (context) {
+                var fav = likeUnlikeController.isFavorited;
+                return IconButton(
                   onPressed: () {
-                    article.isFavorited
+                    likeUnlikeController.isFavorited
                         ? likeUnlikeController.unlikeArticle(article.slug)
                         : likeUnlikeController.likeArticle(article.slug);
                   },
-                  icon: article.isFavorited
+                  icon: fav
                       ? const Icon(Icons.favorite)
-                      : const Icon(Icons.favorite_border_outlined)),
+                      : const Icon(Icons.favorite_border_outlined),
+                );
+              }),
             ],
           ),
         ],
