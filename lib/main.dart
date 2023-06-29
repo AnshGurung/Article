@@ -5,7 +5,6 @@ import 'package:article_hub/features/home/presentation/dashboard/dashboard.dart'
 import 'package:article_hub/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-
 import 'core/presentation/routes/app_pages.dart';
 import 'core/presentation/routes/app_routes.dart';
 import 'features/auth/presentation/screens/splash_screen.dart';

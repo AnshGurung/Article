@@ -1,4 +1,5 @@
 import 'package:article_hub/features/home/data/model/article_model.dart';
+import 'package:article_hub/features/home/presentation/controller/article_controller.dart';
 import 'package:article_hub/features/home/presentation/controller/like_unlike_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -87,15 +88,26 @@ class ArticleCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(DateFormat('dd/MM/yyyy').format(article.createdAt)),
-              GetBuilder<LikeUnlikeController>(builder: (context) {
-                var fav = likeUnlikeController.isFavorited;
+              // Obx(
+              //   () => IconButton(
+              //     onPressed: () {
+              //       article.isFavorited
+              //           ? LikeUnlikeController().unlikeArticle(article.slug)
+              //           : LikeUnlikeController().likeArticle(article.slug);
+              //     },
+              //     icon: article.isFavorited
+              //         ? const Icon(Icons.favorite)
+              //         : const Icon(Icons.favorite_border_outlined),
+              //   ),
+              // ),
+              GetBuilder<ArticleController>(builder: (context) {
                 return IconButton(
                   onPressed: () {
-                    likeUnlikeController.isFavorited
+                    article.isFavorited
                         ? likeUnlikeController.unlikeArticle(article.slug)
                         : likeUnlikeController.likeArticle(article.slug);
                   },
-                  icon: fav
+                  icon: article.isFavorited
                       ? const Icon(Icons.favorite)
                       : const Icon(Icons.favorite_border_outlined),
                 );

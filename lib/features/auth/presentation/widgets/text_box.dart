@@ -16,6 +16,7 @@ class TextBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextField(
+        controller: textController,
         maxLines: maxLines,
         decoration: InputDecoration(
           hintText: hintText,

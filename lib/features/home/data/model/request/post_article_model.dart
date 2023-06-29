@@ -24,12 +24,7 @@ class ArticleRequestInfo {
   String? body;
   List<String>? tagList;
 
-  ArticleRequestInfo({
-    this.title,
-    this.description,
-    this.body,
-    this.tagList,
-  });
+  ArticleRequestInfo({this.title, this.description, this.body, this.tagList});
 
   ArticleRequestInfo.fromJson(Map<String, dynamic> json) {
     title = json["title"];
@@ -40,13 +35,13 @@ class ArticleRequestInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["title"] = title;
-    data["description"] = description;
-    data["body"] = body;
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["title"] = title;
+    _data["description"] = description;
+    _data["body"] = body;
     if (tagList != null) {
-      data["tagList"] = tagList;
+      _data["tagList"] = tagList;
     }
-    return data;
+    return _data;
   }
 }

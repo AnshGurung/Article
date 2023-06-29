@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:article_hub/core/data/source/local/storage_constant.dart';
 import 'package:article_hub/core/presentation/theme/api_endpoints.dart';
+import 'package:article_hub/core/utils/sp_utils.dart';
 import 'package:article_hub/features/home/data/model/article_model.dart';
 import 'package:get/get.dart';
 
@@ -12,9 +14,15 @@ import '../model/author_model.dart';
 class ArticleRepoImple {
   List<Article> articles = [];
   Future<ApiResponse> getArticles() async {
+    SpUtils spUtils = SpUtils();
+    var token = await spUtils.getString(StorageConstant.accessToken);
     var response = await http.get(
-      Uri.parse(ApiEndPoints.baseUrl + ApiEndPoints.articleEndPoints.articles),
-    );
+        Uri.parse(
+            ApiEndPoints.baseUrl + ApiEndPoints.articleEndPoints.articles),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token $token',
+        });
     var jsonData = jsonDecode(response.body);
 
     for (var eachArticle in jsonData['articles']) {

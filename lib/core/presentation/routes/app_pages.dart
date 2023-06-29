@@ -5,6 +5,7 @@ import 'package:article_hub/features/auth/di/login_binding.dart';
 import 'package:article_hub/features/auth/presentation/screens/login_screen.dart';
 import 'package:article_hub/features/auth/presentation/screens/splash_screen.dart';
 import 'package:article_hub/features/home/di/article_binding.dart';
+import 'package:article_hub/features/home/presentation/controller/di/add_new_article_bindings.dart';
 import 'package:article_hub/features/home/presentation/controller/di/like_unlike_bindings.dart';
 import 'package:article_hub/features/home/presentation/screens/add_article_screen.dart';
 import 'package:article_hub/features/home/presentation/screens/article_view_screen.dart';
@@ -23,6 +24,7 @@ class AppPages {
         LoginBinding(),
         ArticleBinding(),
         LikeUnlikeBindings(),
+        AddNewArticleBindings(),
       ],
     ),
     GetPage(
@@ -48,7 +50,9 @@ class AppPages {
     GetPage(
       name: Path.addArticleScreen,
       page: AddArticleScreen.new,
-      bindings: [],
+      bindings: [
+        
+      ],
     ),
     GetPage(
       name: Path.offlineScreen,
