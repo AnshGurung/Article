@@ -20,14 +20,15 @@ class ArticleController extends GetxController {
   }
 
   Future<void> getArticles() async {
+    int counter=0;
+    counter++;
+    print('$counter !!!!!!! WOW, you just called me!!!!!!!!!!!');
     isLoading.value = true;
     var response = await articleRepo.getArticles();
     if (response.hasData) {
       setArticleInfo = response.data as List<Article>;
     }
     isLoading.value = false;
+    update();
   }
-
-  
-
 }

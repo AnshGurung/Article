@@ -4,6 +4,7 @@ import 'package:article_hub/features/auth/controllers/network_controller.dart';
 import 'package:article_hub/features/home/data/model/request/post_article_model.dart';
 import 'package:article_hub/features/home/data/repository/add_article_repo_impl.dart';
 import 'package:article_hub/features/home/data/source/remote/add_new_article_remote_data_source.dart';
+import 'package:article_hub/features/home/presentation/controller/article_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class AddArticleController extends GetxController {
   late PostArticleRequest postArticle;
   List<String> tagList = [];
   NetworkController networkController = Get.put(NetworkController());
+  ArticleController articleController = Get.put(ArticleController());
 
   TextEditingController articleTitleController = TextEditingController();
   TextEditingController articleDescriptionController = TextEditingController();
@@ -39,6 +41,7 @@ class AddArticleController extends GetxController {
         .addArticle(PostArticleRequest(article: articles));
     if (response.hasData) {
       showToast(response.data.toString());
+      articleController.getArticles();
       Get.back();
     } else {
       showFailureToast(response.error.toString());

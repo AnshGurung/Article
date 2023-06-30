@@ -1,4 +1,3 @@
-import 'package:article_hub/core/data/model/tag_model.dart';
 import 'package:article_hub/core/presentation/theme/colours.dart';
 import 'package:flutter/material.dart';
 

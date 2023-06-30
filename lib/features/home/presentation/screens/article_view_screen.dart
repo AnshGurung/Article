@@ -119,16 +119,16 @@ class ArticleViewScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: primaryColor1,
-                ),
-                child: Text(
-                  'This is the comment section, so don\'t forget to turn off your brain before reading all the comments, thank you!',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.all(15),
+              //   decoration: BoxDecoration(
+              //     color: primaryColor1,
+              //   ),
+              //   child: Text(
+              //     'This is the comment section, so don\'t forget to turn off your brain before reading all the comments, thank you!',
+              //     style: TextStyle(color: Colors.white),
+              //   ),
+              // ),
             ],
           ),
         ),

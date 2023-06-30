@@ -1,7 +1,6 @@
 import 'package:article_hub/features/auth/controllers/network_controller.dart';
 import 'package:article_hub/features/auth/presentation/widgets/touch_blocker.dart';
 import 'package:article_hub/features/home/presentation/screens/home_screen.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
