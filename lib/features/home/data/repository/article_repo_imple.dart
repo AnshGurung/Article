@@ -12,8 +12,9 @@ import 'package:http/http.dart' as http;
 import '../model/author_model.dart';
 
 class ArticleRepoImple {
-  List<Article> articles = [];
   Future<ApiResponse> getArticles() async {
+    List<Article> articles = [];
+
     SpUtils spUtils = SpUtils();
     var token = await spUtils.getString(StorageConstant.accessToken);
     var response = await http.get(

@@ -34,11 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
         body: GetBuilder<ArticleController>(
           builder: (context) {
             return RefreshIndicator(
-              onRefresh: ()async{
+              color: primaryColor1,
+              onRefresh: () async {
                 return await articleController.getArticles();
               },
               child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 23),
                   child: isLoading
@@ -52,10 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   const GreetingWidget(),
-                                  CircleAvatar(
-                                    radius: 63 / 2,
-                                    backgroundImage: NetworkImage(imageUrl),
-                                    backgroundColor: grey300,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed('/editProfileScreen');
+                                    },
+                                    child: CircleAvatar(
+                                      radius: 63 / 2,
+                                      backgroundImage: NetworkImage(imageUrl),
+                                      backgroundColor: grey300,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -67,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (articleController) {
                                   var articleList =
                                       articleController.articleInfo;
-            
+
                                   return ListView.separated(
                                     physics:
                                         const NeverScrollableScrollPhysics(),

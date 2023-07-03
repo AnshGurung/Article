@@ -45,17 +45,22 @@ class ArticleCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CachedNetworkImage(
-                    imageUrl: article.author.profileImgUrl!,
-                    imageBuilder: (context, imageProvider) => CircleAvatar(
-                      backgroundImage: imageProvider,
-                      radius: 55 / 2,
-                    ),
-                    placeholder: (context, url) => CircleAvatar(
-                      radius: 55 / 2,
-                      backgroundColor: grey300,
-                    ),
-                  ),
+                  article.author.profileImgUrl == null
+                      ? const CircleAvatar(
+                          backgroundColor: Colors.red,
+                        )
+                      : CachedNetworkImage(
+                          imageUrl: article.author.profileImgUrl!,
+                          imageBuilder: (context, imageProvider) =>
+                              CircleAvatar(
+                            backgroundImage: imageProvider,
+                            radius: 55 / 2,
+                          ),
+                          placeholder: (context, url) => CircleAvatar(
+                            radius: 55 / 2,
+                            backgroundColor: grey300,
+                          ),
+                        ),
                   Spacing.sizedBoxWSmall,
                   SizedBox(
                     width: 200,

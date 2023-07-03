@@ -11,6 +11,7 @@ import 'package:article_hub/features/home/presentation/screens/add_article_scree
 import 'package:article_hub/features/home/presentation/screens/article_view_screen.dart';
 import 'package:article_hub/features/home/presentation/screens/home_screen.dart';
 import 'package:article_hub/features/home/presentation/screens/offline_screen.dart';
+import 'package:article_hub/features/home/presentation/screens/user_profile_screen.dart';
 import 'package:get/route_manager.dart';
 
 class AppPages {
@@ -50,14 +51,16 @@ class AppPages {
     GetPage(
       name: Path.addArticleScreen,
       page: AddArticleScreen.new,
-      bindings: [
-        
-      ],
+      bindings: [],
     ),
     GetPage(
       name: Path.offlineScreen,
       page: OfflineScreen.new,
       bindings: [],
     ),
+    GetPage(
+      name: Path.editProfileScreen,
+      page: UserProfileScreen.new,
+    )
   ];
 }
