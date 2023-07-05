@@ -12,6 +12,7 @@ import 'package:article_hub/features/home/presentation/screens/article_view_scre
 import 'package:article_hub/features/home/presentation/screens/home_screen.dart';
 import 'package:article_hub/features/home/presentation/screens/offline_screen.dart';
 import 'package:article_hub/features/home/presentation/screens/user_profile_screen.dart';
+import 'package:article_hub/features/profile/presentation/controllers/di/get_current_user_bindings.dart';
 import 'package:get/route_manager.dart';
 
 class AppPages {
@@ -59,8 +60,11 @@ class AppPages {
       bindings: [],
     ),
     GetPage(
-      name: Path.editProfileScreen,
+      name: Path.profileScreen,
       page: UserProfileScreen.new,
+      bindings: [
+        GetCurrentUserBindings(),
+      ],
     )
   ];
 }

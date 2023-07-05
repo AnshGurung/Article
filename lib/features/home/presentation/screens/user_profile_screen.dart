@@ -192,11 +192,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
                 SizedBox(
+                  //height: constraints.maxHeight,
                   height: MediaQuery.of(context).size.height * 0.90,
                   child: PageView(
                     onPageChanged: (index) {
                       setState(() {
                         currentPageIndex = index;
+                        print("pageindex: !!!!! $currentPageIndex");
                       });
                     },
                     controller: pageController,
@@ -208,7 +210,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         itemCount: articles.length,
                         itemBuilder: (context, index) {
                           return Card(
-                            child: Text(articles[index]),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 15),
+                              child: Text(articles[index]),
+                            ),
                           );
                         },
                       ),

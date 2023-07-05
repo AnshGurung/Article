@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../screens/add_article_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/profile_screen.dart';
+import '../../../profile/presentation/controllers/profile_screen.dart';
 import '../screens/tag_screen.dart';
 
 class Dashboard extends StatefulWidget {
