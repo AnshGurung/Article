@@ -13,8 +13,8 @@ class AddArticleController extends GetxController {
   late ArticleRequestInfo articles;
   late PostArticleRequest postArticle;
   List<String> tagList = [];
-  NetworkController networkController = Get.put(NetworkController());
-  ArticleController articleController = Get.put(ArticleController());
+  NetworkController networkController = Get.find<NetworkController>();
+  ArticleController articleController = Get.find<ArticleController>();
 
   TextEditingController articleTitleController = TextEditingController();
   TextEditingController articleDescriptionController = TextEditingController();

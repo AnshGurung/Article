@@ -28,7 +28,7 @@ TextTheme appTextTheme = TextTheme(
     fontWeight: FontWeight.normal,
     color: primaryBlack,
   ),
-  bodyLarge:TextStyle(
+  bodyLarge: TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
     color: primaryBlack,
@@ -42,5 +42,15 @@ TextTheme appTextTheme = TextTheme(
     fontSize: 12,
     fontWeight: FontWeight.normal,
     color: primaryBlack,
+  ),
+  titleMedium: TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: primaryColor1,
+  ),
+  titleSmall: TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: backgroundLight,
   ),
 );
